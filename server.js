@@ -12,14 +12,20 @@ app.set('views', path.join(__dirname,'/views'));
 
 
 app.get('/', function(req, res) {
-    console.log('post request accepted');
     res.render('home.ejs');
 })
 
-app.get('/id/:username' , (req, res) => {
-    const { username } = req.params;
+app.get('/id' , (req, res) => {
+    const { username } = req.query;
+    console.log(username)
     res.send(username);
 })
+
+// app.get('/id/:username', (req, res) => {
+//     const { username } = req.params;
+//     console.log('Username:', username);
+//     res.send(`Received username: ${username}`);
+// });
 
 app.listen(port, () => {
     console.log(`app is listening on port : ${port}`);
