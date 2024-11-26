@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>@<%=userData.username%></h1>
+    <p><%=userData.followers%></p>
+    <p><%=userData.following%></p>
+    <div>
+        <% if (userData && userData.posts) { %>
+            <% Object.values(userData.posts).forEach(post => { %>
+                <img src="https://cors-anywhere.herokuapp.com/<%= post %>" alt="Post Image" style="max-width: 100%; height: auto;">
+            <% }); %>
+        <% } else { %>
+            <p>No posts available.</p>
+        <% } %>
+    </div>
+</body>
+</html>

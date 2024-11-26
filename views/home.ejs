@@ -8,18 +8,27 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search" />
 </head>
 <body>
-    <form action="http://localhost:3000/id" method="get">
-        <div>
-            <input type="text" name="username">
-            <span>
-                <button type="submit">
-                    <span class="material-symbols-outlined">
-                    search
-                    </span>
-                </button>
-            </span>
-        </div>
-        
-    </form>
+    <div>
+        <input type="text" name="username" required placeholder="Enter username">
+        <span>
+            <button>
+                <span class="material-symbols-outlined">
+                search
+                </span>
+            </button>
+        </span>
+    </div>
 </body>
+    <script>
+        let username = document.querySelector('input').value.trim();
+        let button = document.querySelector('button');
+
+        button.addEventListener('click', function() {
+            let username = document.querySelector('input').value.trim().toLocaleLowerCase();
+            if(username) {
+                window.location.href = `/id/${username}`
+            }
+        })
+
+    </script>
 </html>
